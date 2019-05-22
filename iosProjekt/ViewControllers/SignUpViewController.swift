@@ -89,11 +89,7 @@ class SignUpViewController : UIViewController {
                 guard let uid = user?.user.uid else {
                     return
                 }
-                
-                print("preparing")
                 Database.database().reference().child("users").child(uid).setValue(["username": username])
-                print("username set")
-
             }
         }
     }
