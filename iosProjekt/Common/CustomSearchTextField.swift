@@ -61,7 +61,7 @@ class CustomSearchTextField: UITextField{
         resultsList = []
         
         resultsList = dataList.filter{ city in
-            city.starts(with: searchString)
+            city.lowercased().starts(with: searchString.lowercased())
         }
         
         tableView?.reloadData()
