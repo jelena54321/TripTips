@@ -20,10 +20,6 @@ class SignUpViewController : UIViewController {
         }
     }
     
-    override func loadView() {
-        self.view = SignUpView(frame: UIScreen.main.bounds)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,7 +52,9 @@ class SignUpViewController : UIViewController {
     
     @objc
     func closeButtonTap(){
-        self.dismiss(animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     @objc
@@ -83,7 +81,6 @@ class SignUpViewController : UIViewController {
                 self.present(alert, animated: true, completion: nil)
             } else {
                 //user created
-                
                 
                 //set username to user
                 guard let uid = user?.user.uid else {

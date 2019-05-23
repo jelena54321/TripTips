@@ -19,14 +19,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        customizeAppearance()
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         
+        sleep(1)
         if let window = window {
-            let mainVC = LoginViewController()
-            window.rootViewController = mainVC
+            let initialViewController = MainTabBarViewController()
+            navigationController = UINavigationController(rootViewController: initialViewController)
+            window.rootViewController = navigationController
             window.makeKeyAndVisible()
         }
         FirebaseApp.configure()
         return true
+    }
+    
+    
+    func customizeAppearance() {
+        UITabBar.appearance().tintColor = .black
     }
 }

@@ -62,14 +62,15 @@ class SignUpView: UIView{
         usernameField.layer.cornerRadius = 10
         usernameField.setLeftPaddingPoints(10)
         
-        signUpButton.backgroundColor = UIColor(red:1.00, green:0.89, blue:0.00, alpha:1.0)
+        signUpButton.backgroundColor = UIColor.triptipsBlue
         signUpButton.setTitleColor(.white, for: .normal)
-        signUpButton.setTitle("Sign up", for: .normal)
+        signUpButton.setTitle("Log in", for: .normal)
         signUpButton.layer.shadowColor = UIColor.black.cgColor
         signUpButton.layer.shadowOffset = CGSize(width: 5, height: 5)
         signUpButton.layer.shadowRadius = 5
         signUpButton.layer.shadowOpacity = 0.2
-        signUpButton.layer.cornerRadius = 10
+        signUpButton.layer.cornerRadius = 22.5
+        signUpButton.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 20)
         
         closeButton.setTitle("✖️", for: .normal)
     }

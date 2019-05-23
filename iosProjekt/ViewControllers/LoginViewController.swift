@@ -17,12 +17,7 @@ class LoginViewController : UIViewController{
             return .portrait
         }
     }
-    
-    override func loadView() {
-        self.view = LoginView(frame: UIScreen.main.bounds)
-    }
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Log in"
@@ -41,7 +36,7 @@ class LoginViewController : UIViewController{
             ])
         
         loginView.loginButton.addTarget(self, action: #selector(loginButtonTap), for: .touchUpInside)
-        loginView.signUpButton.addTarget(self, action: #selector(signUpButtonTap), for: .touchUpInside)
+        loginView.closeButton.addTarget(self, action: #selector(closeButtonTap), for: .touchUpInside)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -77,6 +72,8 @@ class LoginViewController : UIViewController{
             } else {
                 //user logged in
                 //show citiesVC
+                let mainTabBarViewController = MainTabBarViewController()
+                self.present(mainTabBarViewController, animated: true, completion: nil)
             }
         }
         
@@ -85,6 +82,13 @@ class LoginViewController : UIViewController{
     func signUpButtonTap(){
         let signUpViewController = SignUpViewController()
         self.present(signUpViewController, animated: true, completion: nil)
+    }
+    
+    @objc
+    func closeButtonTap(){
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }
 

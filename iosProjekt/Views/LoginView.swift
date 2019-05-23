@@ -15,9 +15,8 @@ class LoginView: UIView{
     let nameField = UITextField(frame: CGRect(x: 0, y: 0, width: 300.00, height: 30.00))
     let passwordField = UITextField(frame: CGRect(x: 0, y: 0, width: 300.00, height: 30.00))
     let loginButton = UIButton()
-    let signUpButton = UIButton()
-    
-    
+    let closeButton = UIButton()
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,7 +37,8 @@ class LoginView: UIView{
         self.addSubview(nameField)
         self.addSubview(passwordField)
         self.addSubview(loginButton)
-        self.addSubview(signUpButton)
+        self.addSubview(closeButton)
+
     }
     
     func styleSubviews(){
@@ -57,20 +57,17 @@ class LoginView: UIView{
         passwordField.isSecureTextEntry = true
         passwordField.setLeftPaddingPoints(10)
         
-        
-        loginButton.backgroundColor = UIColor(red:1.00, green:0.89, blue:0.00, alpha:1.0)
+        loginButton.backgroundColor = UIColor.triptipsBlue
         loginButton.setTitleColor(.white, for: .normal)
         loginButton.setTitle("Log in", for: .normal)
         loginButton.layer.shadowColor = UIColor.black.cgColor
         loginButton.layer.shadowOffset = CGSize(width: 5, height: 5)
         loginButton.layer.shadowRadius = 5
         loginButton.layer.shadowOpacity = 0.2
-        loginButton.layer.cornerRadius = 10
+        loginButton.layer.cornerRadius = 22.5
+        loginButton.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 20)
         
-        signUpButton.setTitleColor(.black, for: .normal)
-        signUpButton.setTitle("Don't have an account? Sign up!", for: .normal)
-        
-        
+        closeButton.setTitle("✖️", for: .normal)
     }
     
     func positionSubviews(){
@@ -102,16 +99,10 @@ class LoginView: UIView{
             loginButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.85)
             ])
         
-        signUpButton.translatesAutoresizingMaskIntoConstraints = false
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            signUpButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 250),
-            signUpButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            signUpButton.heightAnchor.constraint(equalToConstant: 45),
-            signUpButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.85)
-            ])
-        
-        
-        
+            closeButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            closeButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 50)])
     }
 }
 
