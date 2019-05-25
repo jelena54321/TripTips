@@ -16,7 +16,6 @@ class InitialView : UIView {
     let loginButton = UIButton()
     let signupButton = UIButton()
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupView()
@@ -26,9 +25,7 @@ class InitialView : UIView {
         fatalError("Has to be implemented as it is required but will never be used")
     }
     
-    
     func setupView(){
-        print("bok")
         self.addSubviews()
         self.styleSubviews()
         self.positionSubviews()
@@ -71,7 +68,6 @@ class InitialView : UIView {
     }
     
     func positionSubviews(){
-        
         backgroundImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             backgroundImage.topAnchor.constraint(equalTo: self.topAnchor),

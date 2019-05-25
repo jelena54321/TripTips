@@ -19,7 +19,6 @@ class InitialViewController : UIViewController{
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,15 +35,13 @@ class InitialViewController : UIViewController{
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 1.5, delay: 0.2, options: UIView.AnimationOptions.curveEaseInOut, animations: {
+            UIView.animate(withDuration: 1, delay: 0.2, options: UIView.AnimationOptions.curveEaseInOut, animations: {
                 self.initialView.logoImage.transform = CGAffineTransform(translationX: 0, y: -self.view.frame.height * 0.25)
             })
         }
         
         initialView.signupButton.addTarget(self, action: #selector(signupButtonTap), for: .touchUpInside)
         initialView.loginButton.addTarget(self, action: #selector(loginButtonTap), for: .touchUpInside)
-
-        
     }
     
     @objc

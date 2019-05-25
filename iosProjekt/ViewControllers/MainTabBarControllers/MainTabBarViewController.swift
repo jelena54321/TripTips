@@ -15,17 +15,32 @@ class MainTabBarViewController: UITabBarController {
         
         self.tabBar.isTranslucent = false
         
+        tabBar.layer.shadowColor = UIColor.lightGray.cgColor
+        tabBar.layer.shadowOpacity = 0.5
+        tabBar.layer.shadowOffset = CGSize.zero
+        tabBar.layer.shadowRadius = 5
+        self.tabBar.layer.borderColor = UIColor.clear.cgColor
+        self.tabBar.layer.borderWidth = 0
+        self.tabBar.clipsToBounds = false
+        self.tabBar.backgroundColor = UIColor.white
+        UITabBar.appearance().shadowImage = UIImage()
+        UITabBar.appearance().backgroundImage = UIImage()
+
+        
+        
+        //TODO: find appropriate icons
         let searchViewController = SearchViewController()
+        let searchNavigationController = UINavigationController(rootViewController: searchViewController)
         searchViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
-        let settingsViewController = SettingsViewController()
+        
+        let settingsViewController = UIViewController()
         settingsViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 1)
-        let plansViewController = PlansViewController()
+        
+        let plansViewController = UIViewController()
+        plansViewController.view.backgroundColor = .red
         plansViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 2)
         
-        let tabBarList = [searchViewController, settingsViewController, plansViewController]
+        let tabBarList = [searchNavigationController, settingsViewController, plansViewController]
         viewControllers = tabBarList
-        
     }
-    
-
 }

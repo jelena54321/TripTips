@@ -18,8 +18,6 @@ class SignUpView: UIView{
     let closeButton = UIButton()
     let signUpButton = UIButton()
     
-    
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupView()

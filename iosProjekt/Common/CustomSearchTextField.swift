@@ -45,9 +45,8 @@ class CustomSearchTextField: UITextField{
     @objc open func textFieldDidEndEditingOnExit() {
     }
 
-    func loadItems() {
-        dataList = ["Zagreb", "Zagorje", "Zagora", "Zabok", "Zamet", "Zelina"]
-    
+    open func setItems(items: [String]) {
+        dataList = items
     }
     
     fileprivate func filter() {
@@ -56,26 +55,23 @@ class CustomSearchTextField: UITextField{
             return
         }
         
-        loadItems()
-        
+        if searchString.count < 1 {
+            resultsList = []
+            return
+        }
         resultsList = []
-        
         resultsList = dataList.filter{ city in
             city.lowercased().starts(with: searchString.lowercased())
         }
-        
         tableView?.reloadData()
     }
-    
-    
 }
 
 extension CustomSearchTextField: UITableViewDelegate, UITableViewDataSource {
-    
     func buildSearchTableView() {
-        
         if let tableView = tableView {
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CustomSearchTextFieldCell")
+            
             tableView.delegate = self
             tableView.dataSource = self
             self.window?.addSubview(tableView)
@@ -108,9 +104,16 @@ extension CustomSearchTextField: UITableViewDelegate, UITableViewDataSource {
             
             tableView.layer.masksToBounds = true
             tableView.separatorInset = UIEdgeInsets.zero
-            tableView.layer.cornerRadius = 5.0
-            tableView.separatorColor = UIColor.lightGray
-            tableView.backgroundColor = UIColor.white.withAlphaComponent(0.4)
+            tableView.layer.cornerRadius = 10
+            tableView.separatorStyle = .none
+            tableView.backgroundColor = .white
+            tableView.layer.cornerRadius = 10
+            tableView.layer.shadowColor = UIColor.black.cgColor
+            tableView.layer.shadowOffset = CGSize(width: 5, height: 5)
+            tableView.layer.shadowRadius = 5
+            tableView.layer.shadowOpacity = 0.2
+            tableView.clipsToBounds = false
+            tableView.layer.masksToBounds = false
             
             if self.isFirstResponder {
                 superview?.bringSubviewToFront(self)

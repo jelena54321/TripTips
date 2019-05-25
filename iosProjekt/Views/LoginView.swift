@@ -17,7 +17,6 @@ class LoginView: UIView{
     let loginButton = UIButton()
     let closeButton = UIButton()
 
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupView()
@@ -43,20 +42,22 @@ class LoginView: UIView{
     
     func styleSubviews(){
         self.backgroundColor = .white
-        
-        
+
         nameField.placeholder = "Name"
         nameField.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
         nameField.layer.cornerRadius = 10
         nameField.setLeftPaddingPoints(10)
-        
+        //temporary
+        nameField.text = "User@mail.com"
         
         passwordField.placeholder = "Password"
         passwordField.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
         passwordField.layer.cornerRadius = 10
         passwordField.isSecureTextEntry = true
         passwordField.setLeftPaddingPoints(10)
-        
+        //temporary
+        passwordField.text = "123456"
+
         loginButton.backgroundColor = UIColor.triptipsBlue
         loginButton.setTitleColor(.white, for: .normal)
         loginButton.setTitle("Log in", for: .normal)
@@ -66,12 +67,11 @@ class LoginView: UIView{
         loginButton.layer.shadowOpacity = 0.2
         loginButton.layer.cornerRadius = 22.5
         loginButton.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 20)
-        
+    
         closeButton.setTitle("✖️", for: .normal)
     }
     
     func positionSubviews(){
-        
         nameField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             nameField.topAnchor.constraint(equalTo: self.topAnchor, constant: 100),
@@ -80,7 +80,6 @@ class LoginView: UIView{
             nameField.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.85)
             ])
         
-        
         passwordField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             passwordField.topAnchor.constraint(equalTo: self.topAnchor, constant: 150),
@@ -88,8 +87,6 @@ class LoginView: UIView{
             passwordField.heightAnchor.constraint(equalToConstant: 35),
             passwordField.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.85)
             ])
-        
-        
         
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
