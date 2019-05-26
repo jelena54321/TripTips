@@ -35,6 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func customizeAppearance() {
+        UINavigationBar.appearance().tintColor = .black
+        UINavigationBar.appearance().backgroundColor = .white
+        
         UITabBar.appearance().tintColor = .black
+        
     }
 }

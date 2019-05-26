@@ -91,7 +91,6 @@ extension ToDoTableViewCell: DynamicViewType {
         toDoImageView.clipsToBounds = true
         toDoImageView.layer.masksToBounds = true
         toDoImageView.contentMode = .scaleAspectFill
-        toDoImageView.layer.cornerRadius = 10
         toDoImageView.backgroundColor = .lightGray
         
         titleLabel.textColor = .black
@@ -133,7 +132,7 @@ extension ToDoTableViewCell: DynamicViewType {
 
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            descriptionLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -55),
+            descriptionLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -52),
             descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             descriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             descriptionLabel.heightAnchor.constraint(equalToConstant: 40)
@@ -141,7 +140,7 @@ extension ToDoTableViewCell: DynamicViewType {
         
         separator.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            separator.topAnchor.constraint(equalTo: self.bottomAnchor, constant: -40),
+            separator.topAnchor.constraint(equalTo: self.bottomAnchor, constant: -45),
             separator.heightAnchor.constraint(equalToConstant: 0.5),
             separator.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             separator.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)])
@@ -150,8 +149,8 @@ extension ToDoTableViewCell: DynamicViewType {
         NSLayoutConstraint.activate([
             likeButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
             likeButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            likeButton.widthAnchor.constraint(equalToConstant: 20),
-            likeButton.heightAnchor.constraint(equalToConstant: 20)
+            likeButton.widthAnchor.constraint(equalToConstant: 30),
+            likeButton.heightAnchor.constraint(equalToConstant: 23)
             ])
         
         detailsBackground.translatesAutoresizingMaskIntoConstraints = false

@@ -37,7 +37,7 @@ class SearchViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         popularCollectionView.delegate = self
         popularCollectionView.dataSource = self
         popularCollectionView.register(CityCollectionViewCell.self, forCellWithReuseIdentifier: cityCellId)
@@ -65,9 +65,12 @@ class SearchViewController : UIViewController {
         setupView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     func setupView(){
-        
-        self.navigationController?.isNavigationBarHidden = true
         
         ref.observe(.value, with: { snapshot in
             var newItems: [City] = []

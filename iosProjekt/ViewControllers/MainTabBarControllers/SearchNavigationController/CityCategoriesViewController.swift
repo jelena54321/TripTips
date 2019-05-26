@@ -8,8 +8,11 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class CityCategoriesViewController : UIViewController {
+    
+    let categories = ["cafes", "restaurants", "museums", "sights"]
     let backgroundImage = UIImageView()
     let menuCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -22,10 +25,16 @@ class CityCategoriesViewController : UIViewController {
         return collection
     }()
     let blurEffectView = UIVisualEffectView()
-    
+    var backgroundImageTopConstraint : NSLayoutConstraint? = nil
+    var backgroundImageBottomConstraint : NSLayoutConstraint? = nil
     let cellId = "cellId"
+    var toDos : [ToDo] = []
     var city : City? = nil
     
+    var ref : DatabaseReference? = nil
+
+
+
     override func loadView() {
         self.view = UIView(frame: UIScreen.main.bounds)
     }
@@ -37,6 +46,23 @@ class CityCategoriesViewController : UIViewController {
         menuCollectionView.dataSource = self
         menuCollectionView.register(CategoryMenuCell.self, forCellWithReuseIdentifier: cellId)
         
+        guard let city = city else {
+            return
+        }
+        
+        ref = Database.database().reference(withPath: "todos/\(city.getCityName())")
+        
+        setupView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    func setupView(){
+        self.navigationItem.hidesBackButton = true
+        
         self.view.addSubview(backgroundImage)
         self.view.addSubview(blurEffectView)
         self.view.addSubview(menuCollectionView)
@@ -47,11 +73,14 @@ class CityCategoriesViewController : UIViewController {
         backgroundImage.clipsToBounds = true
         backgroundImage.layer.masksToBounds = true
         
+        backgroundImageTopConstraint = backgroundImage.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0)
+        backgroundImageBottomConstraint = backgroundImage.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0)
+        
         backgroundImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             backgroundImage.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             backgroundImage.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            backgroundImage.topAnchor.constraint(equalTo: self.view.topAnchor),
+            backgroundImageTopConstraint!,
             backgroundImage.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
             ])
         
@@ -74,9 +103,6 @@ class CityCategoriesViewController : UIViewController {
         
         menuCollectionView.clipsToBounds = false
         menuCollectionView.layer.masksToBounds = false
-    }
-    
-    func setupView(){
 
     }
     
@@ -137,9 +163,10 @@ extension CityCategoriesViewController: UICollectionViewDataSource, UICollection
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let scaleFactor = 1 + abs(scrollView.contentOffset.y) * 0.003
-        self.blurEffectView.alpha = abs(scrollView.contentOffset.y) * 0.003
-        self.backgroundImage.transform = CGAffineTransform(scaleX: scaleFactor, y: scaleFactor)
+        let scaleFactor = abs(scrollView.contentOffset.y) * 0.3
+        self.blurEffectView.alpha = scrollView.contentOffset.y * 0.003
+        self.backgroundImageBottomConstraint?.constant = scaleFactor
+        self.backgroundImageTopConstraint?.constant = -scaleFactor
     }
 }
 

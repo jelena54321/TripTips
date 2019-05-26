@@ -70,8 +70,6 @@ class LoginViewController : UIViewController{
                 
                 self.present(alert, animated: true, completion: nil)
             } else {
-                //user logged in
-                //show citiesVC
                 let mainTabBarViewController = MainTabBarViewController()
                 self.present(mainTabBarViewController, animated: true, completion: nil)
             }

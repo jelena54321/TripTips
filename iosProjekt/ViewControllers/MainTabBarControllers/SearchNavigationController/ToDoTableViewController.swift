@@ -23,7 +23,12 @@ class ToDoTableViewController : UIViewController {
         self.view.backgroundColor = .white
         self.view.addSubview(tableView)
         
-        self.navigationItem.hidesBackButton = true
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 5, height: 5)
+        self.navigationController?.navigationBar.layer.shadowRadius = 5
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.2
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         
         tableView.backgroundColor = .clear
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -83,7 +88,7 @@ extension ToDoTableViewController: UITableViewDataSource {
                 cell.likeButton.addTarget(self, action: #selector(like), for: .touchUpInside)
             }
         }
-        
+        cell.selectionStyle = .none
         return cell
     }
 }

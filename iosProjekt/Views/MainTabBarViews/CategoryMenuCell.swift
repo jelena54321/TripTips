@@ -24,7 +24,7 @@ class CategoryMenuCell : UICollectionViewCell {
     
     let stackViewRight = UIStackView(arrangedSubviews: [
         CustomImageButton(image: UIImage(named: "museum.jpg")!, title: "Museums"),
-        CustomImageButton(image: UIImage(named: "tour.jpg")!, title: "Tours"),
+        CustomImageButton(image: UIImage(named: "sight.jpg")!, title: "Sights"),
         ])
     
     override init(frame: CGRect) {

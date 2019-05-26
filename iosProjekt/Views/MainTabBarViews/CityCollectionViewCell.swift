@@ -39,6 +39,7 @@ class CityCollectionViewCell : UICollectionViewCell {
         image.clipsToBounds = true
         image.contentMode = .scaleAspectFill
         image.layer.cornerRadius = 10
+        image.backgroundColor = .gray
         
         nameLabel.textColor = .white
         nameLabel.font = UIFont(name: "Montserrat-Bold", size: 18)
