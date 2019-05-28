@@ -47,6 +47,7 @@
 		77B18ED12295F3E700AE22C2 /* CityCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B18ED02295F3E700AE22C2 /* CityCategoriesViewController.swift */; };
 		77CBC29D229724ED00B8487B /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBC29C229724ED00B8487B /* ImageService.swift */; };
 		AF9E32BC6DEF1EFDEA47D560 /* Pods_iosProjektUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4393A5ADC78C9E776445D78 /* Pods_iosProjektUITests.framework */; };
+		EBC0D6F1229C904D00514696 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC0D6F0229C904D00514696 /* ProfileViewController.swift */; };
 		F22E8FDC75F1B517BA81CEF7 /* Pods_iosProjekt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4A9FEB4CF6444464C6CF3B /* Pods_iosProjekt.framework */; };
 		F38CD656B07D18F45EBFACE0 /* Pods_iosProjektTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE663D558D934EC26D229E66 /* Pods_iosProjektTests.framework */; };
 /* End PBXBuildFile section */
@@ -123,6 +124,7 @@
 		C84203F7CB24D48B332E46F3 /* Pods-iosProjektUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosProjektUITests.release.xcconfig"; path = "Target Support Files/Pods-iosProjektUITests/Pods-iosProjektUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DE663D558D934EC26D229E66 /* Pods_iosProjektTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosProjektTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4393A5ADC78C9E776445D78 /* Pods_iosProjektUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosProjektUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBC0D6F0229C904D00514696 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +321,7 @@
 		77B18ED42295F7B600AE22C2 /* MainTabBarControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EBC0D6F2229D305300514696 /* ProfileNavigationController */,
 				7702BEF222989E1A00E43FEC /* SearchNavigationController */,
 				77B18ECC2295EEF700AE22C2 /* MainTabBarViewController.swift */,
 			);
@@ -331,6 +334,14 @@
 				77CBC29C229724ED00B8487B /* ImageService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		EBC0D6F2229D305300514696 /* ProfileNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				EBC0D6F0229C904D00514696 /* ProfileViewController.swift */,
+			);
+			path = ProfileNavigationController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -584,6 +595,7 @@
 				77A942B72294864A0080458F /* SignUpView.swift in Sources */,
 				77A73CDA22947A7C00353CA7 /* LoginViewController.swift in Sources */,
 				77A73CD8229479DE00353CA7 /* LoginView.swift in Sources */,
+				EBC0D6F1229C904D00514696 /* ProfileViewController.swift in Sources */,
 				77B18ECD2295EEF700AE22C2 /* MainTabBarViewController.swift in Sources */,
 				77A942E92295E4430080458F /* UIColorExtension.swift in Sources */,
 				7702BEED22989AFE00E43FEC /* ToDoTableViewCell.swift in Sources */,

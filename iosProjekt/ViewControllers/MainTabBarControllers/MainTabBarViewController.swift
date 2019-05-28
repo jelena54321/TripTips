@@ -26,21 +26,20 @@ class MainTabBarViewController: UITabBarController {
         UITabBar.appearance().shadowImage = UIImage()
         UITabBar.appearance().backgroundImage = UIImage()
 
-        
-        
         //TODO: find appropriate icons
         let searchViewController = SearchViewController()
         let searchNavigationController = UINavigationController(rootViewController: searchViewController)
         searchViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         
-        let settingsViewController = UIViewController()
-        settingsViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 1)
+        let profileViewController = ProfileViewController()
+        let profileNavigationController = UINavigationController(rootViewController: profileViewController)
+        profileViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 1)
         
         let plansViewController = UIViewController()
         plansViewController.view.backgroundColor = .red
         plansViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 2)
         
-        let tabBarList = [searchNavigationController, settingsViewController, plansViewController]
+        let tabBarList = [searchNavigationController, profileNavigationController, plansViewController]
         viewControllers = tabBarList
     }
 }
