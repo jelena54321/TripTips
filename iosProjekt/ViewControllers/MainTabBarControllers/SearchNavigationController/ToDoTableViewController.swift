@@ -27,7 +27,9 @@ class ToDoTableViewController : UIViewController {
         self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 5, height: 5)
         self.navigationController?.navigationBar.layer.shadowRadius = 5
         self.navigationController?.navigationBar.layer.shadowOpacity = 0.2
-        self.navigationController?.isNavigationBarHidden = false
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
         tableView.backgroundColor = .clear

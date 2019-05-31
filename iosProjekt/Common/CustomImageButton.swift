@@ -51,6 +51,7 @@ class CustomImageButton : UIButton {
         nameLabel.layer.shadowOffset = CGSize(width: 5, height: 5)
         nameLabel.layer.shadowRadius = 5
         nameLabel.layer.shadowOpacity = 0.4
+        backgroundImage.bringSubviewToFront(nameLabel)
         
         //position
         backgroundImage.translatesAutoresizingMaskIntoConstraints = false
