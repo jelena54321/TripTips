@@ -5,6 +5,7 @@ class CustomSearchTextField: UITextField{
     var dataList : [String] = [String]()
     var resultsList : [String] = [String]()
     var tableView: UITableView?
+    var currentText : String? = nil
 
     open override func willMove(toWindow newWindow: UIWindow?) {
         super.willMove(toWindow: newWindow)
@@ -17,7 +18,6 @@ class CustomSearchTextField: UITextField{
         
         self.addTarget(self, action: #selector(CustomSearchTextField.textFieldDidChange), for: .editingChanged)
         self.addTarget(self, action: #selector(CustomSearchTextField.textFieldDidBeginEditing), for: .editingDidBegin)
-        self.addTarget(self, action: #selector(CustomSearchTextField.textFieldDidEndEditing), for: .editingDidEnd)
         self.addTarget(self, action: #selector(CustomSearchTextField.textFieldDidEndEditingOnExit), for: .editingDidEndOnExit)
     }
     
@@ -25,7 +25,6 @@ class CustomSearchTextField: UITextField{
     override open func layoutSubviews() {
         super.layoutSubviews()
         buildSearchTableView()
-        
     }
     
     
@@ -38,8 +37,6 @@ class CustomSearchTextField: UITextField{
     @objc open func textFieldDidBeginEditing() {
     }
     
-    @objc open func textFieldDidEndEditing() {
-    }
     
     @objc open func textFieldDidEndEditingOnExit() {
     }

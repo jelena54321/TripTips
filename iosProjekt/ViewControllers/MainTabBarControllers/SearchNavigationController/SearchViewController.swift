@@ -62,6 +62,8 @@ class SearchViewController : UIViewController {
             popularCollectionView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
             popularCollectionView.heightAnchor.constraint(equalToConstant: 270)])
 
+        searchView.searchField.addTarget(self, action: #selector(textFieldDidEndEditing), for: .editingDidEnd)
+        
         setupView()
     }
     
@@ -70,8 +72,34 @@ class SearchViewController : UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    func setupView(){
+    @objc func textFieldDidEndEditing() {
+        print("blabla")
         
+        guard let cityName = searchView.searchField.text else {
+            return
+        }
+        
+        let city = cities.filter { cityElement in
+            cityElement.name == cityName
+        }.first
+        
+        if city != nil {
+            let cityCategoriesViewController = CityCategoriesViewController()
+            ImageService.shared.fetchImage(imageUrl: city?.image){ (image) in
+                if image != nil {
+                    DispatchQueue.main.async {
+                        cityCategoriesViewController.backgroundImage.image = image
+                    }
+                }
+            }
+            cityCategoriesViewController.city = city
+            DispatchQueue.main.async {
+                self.navigationController?.pushViewController(cityCategoriesViewController, animated: true)
+            }
+        }
+    }
+    
+    func setupView(){
         ref.observe(.value, with: { snapshot in
             var newItems: [City] = []
             for child in snapshot.children {
@@ -137,4 +165,9 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         }
     }
 
+}
+
+extension SearchViewController : UITextFieldDelegate {
+    
+    
 }
