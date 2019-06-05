@@ -61,6 +61,8 @@ class SearchViewController : UIViewController {
             popularCollectionView.heightAnchor.constraint(equalToConstant: 270)])
 
         searchView.searchField.addTarget(self, action: #selector(textFieldDidEndEditing), for: .editingDidEnd)
+        searchView.searchField.addTarget(self, action: #selector(textFieldDidBeginEditing), for: .editingDidBegin)
+
         
         setupView()
     }
@@ -70,9 +72,14 @@ class SearchViewController : UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    @objc func textFieldDidEndEditing() {
-        print("blabla")
-        
+    @objc
+    func textFieldDidBeginEditing() {
+        //some animations eventualy
+    }
+    
+    @objc
+    func textFieldDidEndEditing() {
+        self.searchView.searchField.layer.shadowColor = UIColor.black.cgColor
         guard let cityName = searchView.searchField.text else {
             return
         }

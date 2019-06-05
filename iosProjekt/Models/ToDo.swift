@@ -38,4 +38,12 @@ struct ToDo {
         self.image = image
         self.description = description
     }
+    
+    func toAnyObject() -> Any {
+        return [
+            "name": name,
+            "description": description,
+            "image": image
+        ]
+    }
 }

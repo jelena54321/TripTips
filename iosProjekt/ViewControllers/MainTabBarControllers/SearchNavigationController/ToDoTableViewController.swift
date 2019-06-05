@@ -101,10 +101,12 @@ class ToDoTableViewController : UIViewController {
     func add() {
         let addToDoViewController = AddToDoViewController()
         addToDoViewController.modalPresentationStyle = .overCurrentContext
+        addToDoViewController.category = self.category
+        addToDoViewController.cityName = self.cityName
         DispatchQueue.main.async {
             self.tabBarController?.present(addToDoViewController, animated: true) {
                 UIView.animate(withDuration: 0.2) {
-                    addToDoViewController.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+                    addToDoViewController.backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
                 }
             }
         }
