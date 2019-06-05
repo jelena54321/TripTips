@@ -28,12 +28,7 @@ class CityCategoriesViewController : UIViewController {
     var backgroundImageTopConstraint : NSLayoutConstraint? = nil
     var backgroundImageBottomConstraint : NSLayoutConstraint? = nil
     let cellId = "cellId"
-    var toDos : [ToDo] = []
     var city : City? = nil
-    
-    var ref : DatabaseReference? = nil
-
-
 
     override func loadView() {
         self.view = UIView(frame: UIScreen.main.bounds)
@@ -45,13 +40,7 @@ class CityCategoriesViewController : UIViewController {
         menuCollectionView.delegate = self
         menuCollectionView.dataSource = self
         menuCollectionView.register(CategoryMenuCell.self, forCellWithReuseIdentifier: cellId)
-        
-        guard let city = city else {
-            return
-        }
-        
-        ref = Database.database().reference(withPath: "todos/\(city.getCityName())")
-        
+                
         setupView()
     }
     
@@ -103,13 +92,16 @@ class CityCategoriesViewController : UIViewController {
         
         menuCollectionView.clipsToBounds = false
         menuCollectionView.layer.masksToBounds = false
-
+        
+        
+        
     }
     
     @objc
-    func categoryButtonTap(){
-        
+    func categoryButtonTap(_ sender : CustomImageButton){
         let toDoTableViewController = ToDoTableViewController()
+        toDoTableViewController.category = sender.refName
+        toDoTableViewController.cityName = city?.getCityName()
         DispatchQueue.main.async {
             self.navigationController?.pushViewController(toDoTableViewController, animated: true)
         }
@@ -147,7 +139,7 @@ extension CityCategoriesViewController: UICollectionViewDataSource, UICollection
             }
             button.addTarget(self, action: #selector(categoryButtonTap), for: .touchUpInside)
         }
-        
+
         return cell
     }
     

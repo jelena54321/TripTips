@@ -35,6 +35,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func customizeAppearance() {
+        let BarButtonItemAppearance = UIBarButtonItem.appearance()
+        
+        let attributes = [NSAttributedString.Key.font:  UIFont(name: "Helvetica-Bold", size: 0.1)!, NSAttributedString.Key.foregroundColor: UIColor.clear]
+        
+        BarButtonItemAppearance.setTitleTextAttributes(attributes, for: .normal)
+        BarButtonItemAppearance.setTitleTextAttributes(attributes, for: .highlighted)
+        
+        
         UINavigationBar.appearance().tintColor = .black
         UINavigationBar.appearance().backgroundColor = .white
         

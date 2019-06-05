@@ -8,14 +8,27 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class ToDoTableViewController : UIViewController {
     
-    private var toDos = [ToDo]()
+    var toDos = [ToDo]()
     let tableView = UITableView()
+    var cityName : String? = nil
+    var category : String? = nil
+    var ref : DatabaseReference? = nil
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard
+            let cityName = cityName,
+            let category = category  else {
+                return
+        }
+        
+        ref = Database.database().reference(withPath: "todos/\(cityName)/\(category)")
         setupView()
     }
     
@@ -27,6 +40,8 @@ class ToDoTableViewController : UIViewController {
         self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 5, height: 5)
         self.navigationController?.navigationBar.layer.shadowRadius = 5
         self.navigationController?.navigationBar.layer.shadowOpacity = 0.2
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "plus"), style: .plain, target: self, action: #selector(add))
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
@@ -55,6 +70,20 @@ class ToDoTableViewController : UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
+        
+        if ref != nil {
+            ref?.observe(.value, with: { snapshot in
+                var newItems: [ToDo] = []
+                for child in snapshot.children {
+                    if let snapshot = child as? DataSnapshot,
+                        let todo = ToDo(snapshot: snapshot) {
+                        newItems.append(todo)
+                    }
+                }
+                self.toDos = newItems
+                self.tableView.reloadData()
+            })
+        }
     }
     
     @objc
@@ -67,25 +96,34 @@ class ToDoTableViewController : UIViewController {
             sender.tag = 1
         }
     }
+    
+    @objc
+    func add() {
+        let addToDoViewController = AddToDoViewController()
+        addToDoViewController.modalPresentationStyle = .overCurrentContext
+        DispatchQueue.main.async {
+            self.tabBarController?.present(addToDoViewController, animated: true) {
+                UIView.animate(withDuration: 0.2) {
+                    addToDoViewController.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+                }
+            }
+        }
+    }
 }
 
 extension ToDoTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return toDos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell: UITableViewCell!
-        
-        //temporary
-        let toDo = ToDo(name: "Museum-museum", image: "https://www.londonpass.com/siteimg/newpages/london%20museums%20V&A.jpg", description: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.")
-        
         if let cell = tableView.cellForRow(at: indexPath) as? ToDoTableViewCell {
-            cell.setup(with: toDo)
+            cell.setup(with: toDos[indexPath.row])
             cell.likeButton.addTarget(self, action: #selector(like), for: .touchUpInside)
         } else {
-            cell = ToDoTableViewCell(with: toDo)
+            cell = ToDoTableViewCell(with: toDos[indexPath.row])
             if let cell = cell as? ToDoTableViewCell {
                 cell.likeButton.addTarget(self, action: #selector(like), for: .touchUpInside)
             }

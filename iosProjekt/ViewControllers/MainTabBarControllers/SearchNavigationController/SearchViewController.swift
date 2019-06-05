@@ -11,8 +11,6 @@ import UIKit
 import Firebase
 
 class SearchViewController : UIViewController {
-    
-    
     let popularCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collection = UICollectionView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), collectionViewLayout: layout)

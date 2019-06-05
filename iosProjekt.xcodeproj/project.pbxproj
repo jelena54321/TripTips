@@ -20,8 +20,9 @@
 		775930EA22942E9000E09140 /* iosProjektTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775930E922942E9000E09140 /* iosProjektTests.swift */; };
 		775930F522942E9000E09140 /* iosProjektUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775930F422942E9000E09140 /* iosProjektUITests.swift */; };
 		7759310322942F0400E09140 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7759310222942F0400E09140 /* GoogleService-Info.plist */; };
+		77620C2622A743140022B3C0 /* AddToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77620C2522A743130022B3C0 /* AddToDoView.swift */; };
+		77620C2822A7D29A0022B3C0 /* AddToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77620C2722A7D29A0022B3C0 /* AddToDoViewController.swift */; };
 		776255822297556000D146A5 /* CityCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776255812297556000D146A5 /* CityCategoriesView.swift */; };
-		77625584229758A000D146A5 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77625583229758A000D146A5 /* UIViewExtension.swift */; };
 		77625586229767A700D146A5 /* CategoryMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77625585229767A700D146A5 /* CategoryMenuCell.swift */; };
 		779E3DDB22970C6B00F37B2C /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E3DDA22970C6B00F37B2C /* City.swift */; };
 		779E3DDD229716F200F37B2C /* CityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E3DDC229716F200F37B2C /* CityCollectionViewCell.swift */; };
@@ -93,8 +94,9 @@
 		775930F422942E9000E09140 /* iosProjektUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosProjektUITests.swift; sourceTree = "<group>"; };
 		775930F622942E9000E09140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7759310222942F0400E09140 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		77620C2522A743130022B3C0 /* AddToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoView.swift; sourceTree = "<group>"; };
+		77620C2722A7D29A0022B3C0 /* AddToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoViewController.swift; sourceTree = "<group>"; };
 		776255812297556000D146A5 /* CityCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCategoriesView.swift; sourceTree = "<group>"; };
-		77625583229758A000D146A5 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		77625585229767A700D146A5 /* CategoryMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMenuCell.swift; sourceTree = "<group>"; };
 		779E3DDA22970C6B00F37B2C /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		779E3DDC229716F200F37B2C /* CityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				77B18ECE2295F29C00AE22C2 /* SearchViewController.swift */,
 				77B18ED02295F3E700AE22C2 /* CityCategoriesViewController.swift */,
 				7702BEF322989E5B00E43FEC /* ToDoTableViewController.swift */,
+				77620C2722A7D29A0022B3C0 /* AddToDoViewController.swift */,
 			);
 			path = SearchNavigationController;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				7702BEEC22989AFE00E43FEC /* ToDoTableViewCell.swift */,
+				77620C2522A743130022B3C0 /* AddToDoView.swift */,
 				771BCEAB2296D6B400B772AD /* SearchView.swift */,
 				776255812297556000D146A5 /* CityCategoriesView.swift */,
 				779E3DDC229716F200F37B2C /* CityCollectionViewCell.swift */,
@@ -294,7 +298,6 @@
 			children = (
 				7702BEF022989DD000E43FEC /* DynamicViewType.swift */,
 				77A942B92294875A0080458F /* UITextFieldExtension.swift */,
-				77625583229758A000D146A5 /* UIViewExtension.swift */,
 				7702BEEA2298827A00E43FEC /* CustomImageButton.swift */,
 				771BCEAD2296E5E600B772AD /* CustomSearchTextField.swift */,
 				77A942E82295E4430080458F /* UIColorExtension.swift */,
@@ -587,6 +590,7 @@
 			files = (
 				77625586229767A700D146A5 /* CategoryMenuCell.swift in Sources */,
 				77A942BC229488510080458F /* SignUpViewController.swift in Sources */,
+				77620C2622A743140022B3C0 /* AddToDoView.swift in Sources */,
 				77B18ECF2295F29C00AE22C2 /* SearchViewController.swift in Sources */,
 				7702BEEF22989BC400E43FEC /* ToDo.swift in Sources */,
 				77A942BA2294875A0080458F /* UITextFieldExtension.swift in Sources */,
@@ -600,13 +604,13 @@
 				77A942E92295E4430080458F /* UIColorExtension.swift in Sources */,
 				7702BEED22989AFE00E43FEC /* ToDoTableViewCell.swift in Sources */,
 				77A942BE2295D65F0080458F /* InitialView.swift in Sources */,
-				77625584229758A000D146A5 /* UIViewExtension.swift in Sources */,
 				7702BEF422989E5B00E43FEC /* ToDoTableViewController.swift in Sources */,
 				775930D522942E8F00E09140 /* AppDelegate.swift in Sources */,
 				7702BEF122989DD000E43FEC /* DynamicViewType.swift in Sources */,
 				77CBC29D229724ED00B8487B /* ImageService.swift in Sources */,
 				771BCEAC2296D6B400B772AD /* SearchView.swift in Sources */,
 				77A942C02295DB690080458F /* InitialViewController.swift in Sources */,
+				77620C2822A7D29A0022B3C0 /* AddToDoViewController.swift in Sources */,
 				771BCEAE2296E5E600B772AD /* CustomSearchTextField.swift in Sources */,
 				776255822297556000D146A5 /* CityCategoriesView.swift in Sources */,
 				779E3DDB22970C6B00F37B2C /* City.swift in Sources */,

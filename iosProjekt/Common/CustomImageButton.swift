@@ -13,9 +13,11 @@ class CustomImageButton : UIButton {
     
     let backgroundImage = UIImageView()
     let nameLabel = UILabel()
+    var refName : String? = nil
     
     
-    init(image: UIImage, title: String) {
+    init(image: UIImage, title: String, refName: String) {
+        self.refName = refName
         super.init(frame: .zero)
         setupView(image: image, title: title)
     }

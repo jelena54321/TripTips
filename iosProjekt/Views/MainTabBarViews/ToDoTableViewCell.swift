@@ -102,9 +102,9 @@ extension ToDoTableViewCell: DynamicViewType {
         
         separator.backgroundColor = .lightGray
         
-        likeButton.setImage(UIImage(named: "heartRed.pdf"), for: .normal)
+        likeButton.setImage(UIImage(named: "heartEmpty.pdf"), for: .normal)
         likeButton.imageView?.contentMode = .scaleAspectFit
-        likeButton.tag = 1
+        likeButton.tag = 0
         
         detailsBackground.layer.cornerRadius = 15
         detailsBackground.backgroundColor = UIColor.triptipsYellow

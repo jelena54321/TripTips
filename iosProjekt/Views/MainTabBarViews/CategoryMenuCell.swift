@@ -18,13 +18,13 @@ class CategoryMenuCell : UICollectionViewCell {
     let separator = UIView()
     let descriptionLabel = UILabel()
     let stackViewLeft = UIStackView(arrangedSubviews: [
-        CustomImageButton(image: UIImage(named: "restaurant.jpg")!, title: "Restaurants"),
-        CustomImageButton(image: UIImage(named: "coffee.jpg")!, title: "Caffe bars"),
+        CustomImageButton(image: UIImage(named: "restaurant.jpg")!, title: "Restaurants", refName: "restaurants"),
+        CustomImageButton(image: UIImage(named: "coffee.jpg")!, title: "Caffe bars", refName: "cafes"),
         ])
     
     let stackViewRight = UIStackView(arrangedSubviews: [
-        CustomImageButton(image: UIImage(named: "museum.jpg")!, title: "Museums"),
-        CustomImageButton(image: UIImage(named: "sight.jpg")!, title: "Sights"),
+        CustomImageButton(image: UIImage(named: "museum.jpg")!, title: "Museums", refName: "museums"),
+        CustomImageButton(image: UIImage(named: "sight.jpg")!, title: "Sights", refName: "sights"),
         ])
     
     override init(frame: CGRect) {
