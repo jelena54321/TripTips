@@ -22,6 +22,7 @@
 		7759310322942F0400E09140 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7759310222942F0400E09140 /* GoogleService-Info.plist */; };
 		77620C2622A743140022B3C0 /* AddToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77620C2522A743130022B3C0 /* AddToDoView.swift */; };
 		77620C2822A7D29A0022B3C0 /* AddToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77620C2722A7D29A0022B3C0 /* AddToDoViewController.swift */; };
+		77620C2A22A83B140022B3C0 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77620C2922A83B140022B3C0 /* FirebaseService.swift */; };
 		776255822297556000D146A5 /* CityCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776255812297556000D146A5 /* CityCategoriesView.swift */; };
 		77625586229767A700D146A5 /* CategoryMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77625585229767A700D146A5 /* CategoryMenuCell.swift */; };
 		779E3DDB22970C6B00F37B2C /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E3DDA22970C6B00F37B2C /* City.swift */; };
@@ -47,6 +48,7 @@
 		77B18ECF2295F29C00AE22C2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B18ECE2295F29C00AE22C2 /* SearchViewController.swift */; };
 		77B18ED12295F3E700AE22C2 /* CityCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B18ED02295F3E700AE22C2 /* CityCategoriesViewController.swift */; };
 		77CBC29D229724ED00B8487B /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBC29C229724ED00B8487B /* ImageService.swift */; };
+		77F5460F22AC546000906BBA /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F5460E22AC546000906BBA /* UIViewExtension.swift */; };
 		AF9E32BC6DEF1EFDEA47D560 /* Pods_iosProjektUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4393A5ADC78C9E776445D78 /* Pods_iosProjektUITests.framework */; };
 		EBC0D6F1229C904D00514696 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC0D6F0229C904D00514696 /* ProfileViewController.swift */; };
 		F22E8FDC75F1B517BA81CEF7 /* Pods_iosProjekt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4A9FEB4CF6444464C6CF3B /* Pods_iosProjekt.framework */; };
@@ -96,6 +98,7 @@
 		7759310222942F0400E09140 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		77620C2522A743130022B3C0 /* AddToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoView.swift; sourceTree = "<group>"; };
 		77620C2722A7D29A0022B3C0 /* AddToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoViewController.swift; sourceTree = "<group>"; };
+		77620C2922A83B140022B3C0 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		776255812297556000D146A5 /* CityCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCategoriesView.swift; sourceTree = "<group>"; };
 		77625585229767A700D146A5 /* CategoryMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMenuCell.swift; sourceTree = "<group>"; };
 		779E3DDA22970C6B00F37B2C /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
@@ -121,6 +124,7 @@
 		77B18ECE2295F29C00AE22C2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		77B18ED02295F3E700AE22C2 /* CityCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCategoriesViewController.swift; sourceTree = "<group>"; };
 		77CBC29C229724ED00B8487B /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		77F5460E22AC546000906BBA /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		8C8EAA7A1D20BA6A5210C71A /* Pods-iosProjekt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosProjekt.debug.xcconfig"; path = "Target Support Files/Pods-iosProjekt/Pods-iosProjekt.debug.xcconfig"; sourceTree = "<group>"; };
 		8E9682D5A241FBE48C7C07C2 /* Pods-iosProjektUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosProjektUITests.debug.xcconfig"; path = "Target Support Files/Pods-iosProjektUITests/Pods-iosProjektUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C84203F7CB24D48B332E46F3 /* Pods-iosProjektUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosProjektUITests.release.xcconfig"; path = "Target Support Files/Pods-iosProjektUITests/Pods-iosProjektUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -301,6 +305,7 @@
 				7702BEEA2298827A00E43FEC /* CustomImageButton.swift */,
 				771BCEAD2296E5E600B772AD /* CustomSearchTextField.swift */,
 				77A942E82295E4430080458F /* UIColorExtension.swift */,
+				77F5460E22AC546000906BBA /* UIViewExtension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -335,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				77CBC29C229724ED00B8487B /* ImageService.swift */,
+				77620C2922A83B140022B3C0 /* FirebaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -606,11 +612,13 @@
 				77A942BE2295D65F0080458F /* InitialView.swift in Sources */,
 				7702BEF422989E5B00E43FEC /* ToDoTableViewController.swift in Sources */,
 				775930D522942E8F00E09140 /* AppDelegate.swift in Sources */,
+				77620C2A22A83B140022B3C0 /* FirebaseService.swift in Sources */,
 				7702BEF122989DD000E43FEC /* DynamicViewType.swift in Sources */,
 				77CBC29D229724ED00B8487B /* ImageService.swift in Sources */,
 				771BCEAC2296D6B400B772AD /* SearchView.swift in Sources */,
 				77A942C02295DB690080458F /* InitialViewController.swift in Sources */,
 				77620C2822A7D29A0022B3C0 /* AddToDoViewController.swift in Sources */,
+				77F5460F22AC546000906BBA /* UIViewExtension.swift in Sources */,
 				771BCEAE2296E5E600B772AD /* CustomSearchTextField.swift in Sources */,
 				776255822297556000D146A5 /* CityCategoriesView.swift in Sources */,
 				779E3DDB22970C6B00F37B2C /* City.swift in Sources */,

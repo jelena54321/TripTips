@@ -62,7 +62,6 @@ class SearchViewController : UIViewController {
 
         searchView.searchField.addTarget(self, action: #selector(textFieldDidEndEditing), for: .editingDidEnd)
         searchView.searchField.addTarget(self, action: #selector(textFieldDidBeginEditing), for: .editingDidBegin)
-
         
         setupView()
     }

@@ -16,6 +16,7 @@ class ToDoTableViewCell : UITableViewCell {
     let descriptionLabel = UILabel()
     let separator = UIView()
     let likeButton = UIButton()
+    let likeNumberLabel = UILabel()
     
     let detailsBackground = UIView()
     let detailsLabel = UILabel()
@@ -55,6 +56,34 @@ extension ToDoTableViewCell: DynamicViewType {
     func setup(with baseObject: ToDo) {
         self.descriptionLabel.text = toDo.description
         self.titleLabel.text = toDo.name
+        self.likeNumberLabel.text = "\(toDo.likesNumber)"
+
+        
+        ImageService.shared.fetchImage(imageUrl: toDo.image){ (image) in
+            if image != nil {
+                DispatchQueue.main.async {
+                    self.toDoImageView.image = image
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.toDoImageView.image = UIImage(named: "tour.jpg")
+                }
+            }
+        }
+    }
+    
+    
+    func setup(with baseObject: ToDo, liked: Bool) {
+        self.descriptionLabel.text = toDo.description
+        self.titleLabel.text = toDo.name
+        self.likeNumberLabel.text = "\(toDo.likesNumber)"
+        if liked {
+            self.likeButton.setImage(UIImage(named: "heartRed"), for: .normal)
+            self.likeButton.tag = 1
+        } else {
+            self.likeButton.setImage(UIImage(named: "heartEmpty"), for: .normal)
+            self.likeButton.tag = 0
+        }
         
         ImageService.shared.fetchImage(imageUrl: toDo.image){ (image) in
             if image != nil {
@@ -75,6 +104,7 @@ extension ToDoTableViewCell: DynamicViewType {
         self.addSubview(titleLabel)
         self.addSubview(separator)
         self.addSubview(likeButton)
+        self.addSubview(likeNumberLabel)
         
         self.addSubview(detailsBackground)
         self.addSubview(detailsLabel)
@@ -105,6 +135,10 @@ extension ToDoTableViewCell: DynamicViewType {
         likeButton.setImage(UIImage(named: "heartEmpty.pdf"), for: .normal)
         likeButton.imageView?.contentMode = .scaleAspectFit
         likeButton.tag = 0
+        
+        likeNumberLabel.font = UIFont(name: "Montserrat-Regular", size: 15)
+        likeNumberLabel.textColor = .gray
+        likeNumberLabel.text = "NaN"
         
         detailsBackground.layer.cornerRadius = 15
         detailsBackground.backgroundColor = UIColor.triptipsYellow
@@ -151,6 +185,12 @@ extension ToDoTableViewCell: DynamicViewType {
             likeButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             likeButton.widthAnchor.constraint(equalToConstant: 30),
             likeButton.heightAnchor.constraint(equalToConstant: 23)
+            ])
+        
+        likeNumberLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            likeNumberLabel.centerYAnchor.constraint(equalTo: likeButton.centerYAnchor),
+            likeNumberLabel.leadingAnchor.constraint(equalTo: likeButton.trailingAnchor, constant: 5)
             ])
         
         detailsBackground.translatesAutoresizingMaskIntoConstraints = false

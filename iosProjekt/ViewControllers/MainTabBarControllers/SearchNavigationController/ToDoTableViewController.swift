@@ -17,7 +17,11 @@ class ToDoTableViewController : UIViewController {
     var cityName : String? = nil
     var category : String? = nil
     var ref : DatabaseReference? = nil
-
+    var likedTodos = [ToDo]()
+    var likedTodosRealtime = [ToDo]()
+    let likesRef = Database.database().reference(withPath: "users/\(Auth.auth().currentUser!.uid)/likes")
+    var newLikedTodos = [ToDo]()
+    var unlikedTodos = [ToDo]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +31,30 @@ class ToDoTableViewController : UIViewController {
             let category = category  else {
                 return
         }
-        
+
         ref = Database.database().reference(withPath: "todos/\(cityName)/\(category)")
         setupView()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        
+        guard
+            let cityName = cityName,
+            let category = category else {
+            return
+        }
+        
+        newLikedTodos.forEach { todo in
+            FirebaseService.shared.like(todo: todo, city: cityName, category: category)
+        }
+        
+        unlikedTodos.forEach { todo in
+            FirebaseService.shared.unlike(todo: todo, city: cityName, category: category)
+            
+        }
+        
     }
     
     func setupView() {
@@ -71,6 +96,18 @@ class ToDoTableViewController : UIViewController {
         tableView.delegate = self
         tableView.separatorStyle = .none
         
+        likesRef.observe(.value, with: { snapshot in
+            var newItems: [ToDo] = []
+            for child in snapshot.children {
+                if let snapshot = child as? DataSnapshot,
+                    let todo = ToDo(snapshot: snapshot) {
+                    newItems.append(todo)
+                }
+            }
+            self.likedTodos = newItems
+            self.likedTodosRealtime = newItems
+        })
+        
         if ref != nil {
             ref?.observe(.value, with: { snapshot in
                 var newItems: [ToDo] = []
@@ -84,16 +121,63 @@ class ToDoTableViewController : UIViewController {
                 self.tableView.reloadData()
             })
         }
+        
+        
     }
+    
+    
+    func isLiked(todo: ToDo) -> Bool {
+        let liked = likedTodosRealtime + newLikedTodos
+        
+        return liked.contains(todo)
+    }
+    
     
     @objc
     func like(_ sender : UIButton) {
+        let cell = sender.superview as! ToDoTableViewCell
+        guard let currentLikes = Int(cell.likeNumberLabel.text!) else {
+            return
+        }
         if sender.tag == 1 {
-            sender.setImage(UIImage(named: "heartEmpty.pdf"), for: .normal)
+            sender.setImage(UIImage(named: "heartEmpty"), for: .normal)
             sender.tag = 0
+            cell.likeNumberLabel.text = "\(currentLikes-1)"
+            
+            
+            if likedTodos.contains(cell.toDo){
+                unlikedTodos.append(cell.toDo)
+            }
+            
+            likedTodosRealtime = likedTodos.filter {likedTodo in
+                likedTodo != cell.toDo
+            }
+            
+            newLikedTodos = newLikedTodos.filter {likedTodo in
+                likedTodo != cell.toDo
+            }
         } else {
-            sender.setImage(UIImage(named: "heartRed.pdf"), for: .normal)
+            sender.setImage(UIImage(named: "heartRed"), for: .normal)
             sender.tag = 1
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.1, animations: {
+                    sender.transform = CGAffineTransform(scaleX: 1.7, y: 1.7)
+                },
+                               completion: { bool in
+                    UIView.animate(withDuration: 0.1) {
+                        sender.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    }
+                })
+            }
+            
+            cell.likeNumberLabel.text = "\(currentLikes+1)"
+            
+            if !likedTodos.contains(cell.toDo) {
+                newLikedTodos.append(cell.toDo)
+            }
+            
+            
+            
         }
     }
     
@@ -122,12 +206,25 @@ extension ToDoTableViewController: UITableViewDataSource {
         
         var cell: UITableViewCell!
         if let cell = tableView.cellForRow(at: indexPath) as? ToDoTableViewCell {
-            cell.setup(with: toDos[indexPath.row])
+            
+            let liked = isLiked(todo: toDos[indexPath.row])
+            
+            cell.setup(with: toDos[indexPath.row], liked: liked)
             cell.likeButton.addTarget(self, action: #selector(like), for: .touchUpInside)
         } else {
+            let liked = isLiked(todo: toDos[indexPath.row])
+            
             cell = ToDoTableViewCell(with: toDos[indexPath.row])
+
             if let cell = cell as? ToDoTableViewCell {
                 cell.likeButton.addTarget(self, action: #selector(like), for: .touchUpInside)
+                if liked {
+                    cell.likeButton.setImage(UIImage(named: "heartRed"), for: .normal)
+                    cell.likeButton.tag = 1
+                } else {
+                    cell.likeButton.setImage(UIImage(named: "heartEmpty"), for: .normal)
+                    cell.likeButton.tag = 0
+                }
             }
         }
         cell.selectionStyle = .none
