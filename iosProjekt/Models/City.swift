@@ -46,4 +46,11 @@ struct City{
         return cityName
     }
     
+    func getCountryName() -> String {
+        guard let countryName = name.components(separatedBy: ", ").last else {
+            return ""
+        }
+        return countryName
+    }
+    
 }

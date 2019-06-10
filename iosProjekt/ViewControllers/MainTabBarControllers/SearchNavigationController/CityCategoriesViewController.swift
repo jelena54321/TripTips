@@ -13,7 +13,10 @@ import Firebase
 class CityCategoriesViewController : UIViewController {
     
     let categories = ["cafes", "restaurants", "museums", "sights"]
+    let backButton = UIButton()
     let backgroundImage = UIImageView()
+    let countryLabel = UILabel()
+    let countryBackground = UIView()
     let menuCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collection = UICollectionView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), collectionViewLayout: layout)
@@ -29,6 +32,7 @@ class CityCategoriesViewController : UIViewController {
     var backgroundImageBottomConstraint : NSLayoutConstraint? = nil
     let cellId = "cellId"
     var city : City? = nil
+    
 
     override func loadView() {
         self.view = UIView(frame: UIScreen.main.bounds)
@@ -54,7 +58,10 @@ class CityCategoriesViewController : UIViewController {
         
         self.view.addSubview(backgroundImage)
         self.view.addSubview(blurEffectView)
+        self.view.addSubview(backButton)
         self.view.addSubview(menuCollectionView)
+        self.view.addSubview(countryBackground)
+        self.view.addSubview(countryLabel)
         
         blurEffectView.effect = UIBlurEffect(style: .regular)
         
@@ -62,8 +69,32 @@ class CityCategoriesViewController : UIViewController {
         backgroundImage.clipsToBounds = true
         backgroundImage.layer.masksToBounds = true
         
+        countryBackground.backgroundColor = UIColor.triptipsYellow
+        countryBackground.layer.cornerRadius = 15
+        countryBackground.layer.masksToBounds = false
+        countryBackground.clipsToBounds = false
+        countryBackground.layer.shadowColor = UIColor.black.cgColor
+        countryBackground.layer.shadowRadius = 5
+        countryBackground.layer.shadowOpacity = 0.3
+        countryBackground.layer.shadowOffset = CGSize(width: 5, height: 5)
+        
+        countryLabel.font = UIFont(name: "Montserrat-Bold", size: 14)
+        countryLabel.text = self.city?.getCountryName()
+        countryLabel.textColor = .black
+
+        
+        
         backgroundImageTopConstraint = backgroundImage.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0)
         backgroundImageBottomConstraint = backgroundImage.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0)
+        
+        backButton.setImage(UIImage(named: "back"), for: .normal)
+        backButton.layer.shadowColor = UIColor.black.cgColor
+        backButton.layer.shadowRadius = 5
+        backButton.layer.shadowOpacity = 0.3
+        backButton.layer.shadowOffset = CGSize(width: 5, height: 5)
+        backButton.imageView?.contentMode = .scaleAspectFit
+        backButton.layer.masksToBounds = false
+        backButton.clipsToBounds = false
         
         backgroundImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -81,20 +112,44 @@ class CityCategoriesViewController : UIViewController {
             blurEffectView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
             ])
         
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            backButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 20),
+            backButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
+            backButton.heightAnchor.constraint(equalToConstant: 45)])
+        
+        countryBackground.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            countryBackground.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
+            countryBackground.heightAnchor.constraint(equalToConstant: 30),
+            countryBackground.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
+            countryBackground.widthAnchor.constraint(equalTo: countryLabel.widthAnchor, multiplier: 1.6)])
+        
+        countryLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            countryLabel.centerYAnchor.constraint(equalTo: countryBackground.centerYAnchor),
+            countryLabel.centerXAnchor.constraint(equalTo: countryBackground.centerXAnchor)
+            ])
         
         menuCollectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             menuCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             menuCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            menuCollectionView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 60),
+            menuCollectionView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 75),
             menuCollectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
             ])
         
         menuCollectionView.clipsToBounds = false
         menuCollectionView.layer.masksToBounds = false
         
+        backButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
         
         
+    }
+    
+    @objc
+    func goBack(){
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc
@@ -145,7 +200,7 @@ extension CityCategoriesViewController: UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = self.view.frame.width
-        let height = self.view.frame.height-60
+        let height = self.view.frame.height-75
         return CGSize(width: width, height: height)
     }
     
@@ -157,6 +212,8 @@ extension CityCategoriesViewController: UICollectionViewDataSource, UICollection
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let scaleFactor = abs(scrollView.contentOffset.y) * 0.3
         self.blurEffectView.alpha = scrollView.contentOffset.y * 0.003
+        self.countryLabel.alpha = 1.3-scrollView.contentOffset.y * 0.005
+        self.countryBackground.alpha = 1.3-scrollView.contentOffset.y * 0.005 
         self.backgroundImageBottomConstraint?.constant = scaleFactor
         self.backgroundImageTopConstraint?.constant = -scaleFactor
     }
