@@ -12,9 +12,10 @@ import Foundation
 
 class SignUpView: UIView{
     
-    let emailField = UITextField(frame: CGRect(x: 0, y: 0, width: 300.00, height: 30.00))
-    let passwordField = UITextField(frame: CGRect(x: 0, y: 0, width: 300.00, height: 30.00))
-    let usernameField = UITextField(frame: CGRect(x: 0, y: 0, width: 300.00, height: 30.00))
+    let fieldsContainer = UIView()
+    let emailField = UITextField()
+    let passwordField = UITextField()
+    let usernameField = UITextField()
     let closeButton = UIButton()
     let signUpButton = UIButton()
     
@@ -34,29 +35,32 @@ class SignUpView: UIView{
     }
     
     func addSubviews(){
-        self.addSubview(emailField)
-        self.addSubview(passwordField)
-        self.addSubview(signUpButton)
-        self.addSubview(usernameField)
         self.addSubview(closeButton)
+        self.addSubview(fieldsContainer)
+        fieldsContainer.addSubview(emailField)
+        fieldsContainer.addSubview(passwordField)
+        fieldsContainer.addSubview(signUpButton)
+        fieldsContainer.addSubview(usernameField)
     }
     
     func styleSubviews(){
         self.backgroundColor = .white
         
+        let defaultFont = UIFont(name: "Montserrat-Thin", size: 20)
+        
+        emailField.font = defaultFont
         emailField.placeholder = "Email"
-        emailField.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
         emailField.layer.cornerRadius = 10
         emailField.setLeftPaddingPoints(10)
         
+        passwordField.font = defaultFont
         passwordField.placeholder = "Password"
-        passwordField.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
         passwordField.layer.cornerRadius = 10
         passwordField.isSecureTextEntry = true
         passwordField.setLeftPaddingPoints(10)
         
+        usernameField.font = defaultFont
         usernameField.placeholder = "Username"
-        usernameField.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
         usernameField.layer.cornerRadius = 10
         usernameField.setLeftPaddingPoints(10)
         
@@ -74,46 +78,51 @@ class SignUpView: UIView{
     }
     
     func positionSubviews(){
+        fieldsContainer.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            fieldsContainer.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 30.0),
+            fieldsContainer.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -30.0),
+            fieldsContainer.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        ])
         
         usernameField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            usernameField.topAnchor.constraint(equalTo: self.topAnchor, constant: 100),
-            usernameField.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            usernameField.heightAnchor.constraint(equalToConstant: 35),
-            usernameField.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.85)
-            ])
+            usernameField.topAnchor.constraint(equalTo: fieldsContainer.topAnchor),
+            usernameField.heightAnchor.constraint(equalToConstant: 40.0),
+            usernameField.leftAnchor.constraint(equalTo: fieldsContainer.leftAnchor),
+            usernameField.rightAnchor.constraint(equalTo: fieldsContainer.rightAnchor)
+        ])
         
         emailField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            emailField.topAnchor.constraint(equalTo: self.topAnchor, constant: 150),
-            emailField.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            emailField.heightAnchor.constraint(equalToConstant: 35),
-            emailField.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.85)
-            ])
+            emailField.topAnchor.constraint(equalTo: usernameField.bottomAnchor, constant: 30.0),
+            emailField.heightAnchor.constraint(equalToConstant: 40.0),
+            emailField.leftAnchor.constraint(equalTo: fieldsContainer.leftAnchor),
+            emailField.rightAnchor.constraint(equalTo: fieldsContainer.rightAnchor)
+        ])
         
         
         passwordField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            passwordField.topAnchor.constraint(equalTo: self.topAnchor, constant: 200),
-            passwordField.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            passwordField.heightAnchor.constraint(equalToConstant: 35),
-            passwordField.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.85)
-            ])
+            passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: 30.0),
+            passwordField.heightAnchor.constraint(equalToConstant: 40.0),
+            passwordField.leftAnchor.constraint(equalTo: fieldsContainer.leftAnchor),
+            passwordField.rightAnchor.constraint(equalTo: fieldsContainer.rightAnchor)
+        ])
         
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            signUpButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 250),
-            signUpButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            signUpButton.heightAnchor.constraint(equalToConstant: 45),
-            signUpButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.85)
-            ])
+            signUpButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 60.0),
+            signUpButton.heightAnchor.constraint(equalToConstant: 40.0),
+            signUpButton.leftAnchor.constraint(equalTo: fieldsContainer.leftAnchor),
+            signUpButton.rightAnchor.constraint(equalTo: fieldsContainer.rightAnchor),
+            signUpButton.bottomAnchor.constraint(equalTo: fieldsContainer.bottomAnchor)
+        ])
         
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             closeButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            closeButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 50)])
+            closeButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 50)
+        ])
     }
 }
-
-
-

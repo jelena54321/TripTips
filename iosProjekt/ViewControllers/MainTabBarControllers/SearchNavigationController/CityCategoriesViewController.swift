@@ -156,6 +156,7 @@ class CityCategoriesViewController : UIViewController {
     func categoryButtonTap(_ sender : CustomImageButton){
         let toDoTableViewController = ToDoTableViewController()
         toDoTableViewController.category = sender.refName
+        toDoTableViewController.city = city?.name
         toDoTableViewController.cityName = city?.getCityName()
         DispatchQueue.main.async {
             self.navigationController?.pushViewController(toDoTableViewController, animated: true)

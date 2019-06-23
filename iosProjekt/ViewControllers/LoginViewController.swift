@@ -39,6 +39,32 @@ class LoginViewController : UIViewController{
         loginView.closeButton.addTarget(self, action: #selector(closeButtonTap), for: .touchUpInside)
     }
     
+    override func viewDidLayoutSubviews() {
+        loginView.nameField.layer.addSublayer({
+            let border = CALayer()
+            border.frame = CGRect(
+                x: 0,
+                y: loginView.nameField.bounds.height - 1,
+                width: loginView.nameField.bounds.width,
+                height: 1
+            )
+            border.backgroundColor = UIColor.lightGray.cgColor
+            return border
+        }())
+        
+        loginView.passwordField.layer.addSublayer({
+            let border = CALayer()
+            border.frame = CGRect(
+                x: 0,
+                y: loginView.passwordField.bounds.height - 1,
+                width: loginView.passwordField.bounds.width,
+                height: 1
+            )
+            border.backgroundColor = UIColor.lightGray.cgColor
+            return border
+        }())
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }

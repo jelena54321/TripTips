@@ -10,10 +10,11 @@ import UIKit
 import Foundation
 
 
-class LoginView: UIView{
+class LoginView: UIView {
     
-    let nameField = UITextField(frame: CGRect(x: 0, y: 0, width: 300.00, height: 30.00))
-    let passwordField = UITextField(frame: CGRect(x: 0, y: 0, width: 300.00, height: 30.00))
+    let fieldsContainer = UIView()
+    let nameField = UITextField()
+    let passwordField = UITextField()
     let loginButton = UIButton()
     let closeButton = UIButton()
 
@@ -33,26 +34,28 @@ class LoginView: UIView{
     }
     
     func addSubviews(){
-        self.addSubview(nameField)
-        self.addSubview(passwordField)
-        self.addSubview(loginButton)
         self.addSubview(closeButton)
-
+        self.addSubview(fieldsContainer)
+        fieldsContainer.addSubview(nameField)
+        fieldsContainer.addSubview(passwordField)
+        fieldsContainer.addSubview(loginButton)
     }
     
     func styleSubviews(){
         self.backgroundColor = .white
-
+        
+        let defaultFont = UIFont(name: "Montserrat-Thin", size: 20)
+    
+        nameField.font = defaultFont
+        nameField.textColor = .darkGray
         nameField.placeholder = "Name"
-        nameField.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
-        nameField.layer.cornerRadius = 10
         nameField.setLeftPaddingPoints(10)
         //temporary
-        nameField.text = "User@mail.com"
+        nameField.text = "user@mail.com"
         
+        passwordField.font = defaultFont
+        passwordField.textColor = .darkGray
         passwordField.placeholder = "Password"
-        passwordField.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
-        passwordField.layer.cornerRadius = 10
         passwordField.isSecureTextEntry = true
         passwordField.setLeftPaddingPoints(10)
         //temporary
@@ -71,35 +74,44 @@ class LoginView: UIView{
         closeButton.setTitle("✖️", for: .normal)
     }
     
-    func positionSubviews(){
+    func positionSubviews() {
+        fieldsContainer.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            fieldsContainer.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 30.0),
+            fieldsContainer.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -30.0),
+            fieldsContainer.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        ])
+        
         nameField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            nameField.topAnchor.constraint(equalTo: self.topAnchor, constant: 100),
-            nameField.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            nameField.heightAnchor.constraint(equalToConstant: 35),
-            nameField.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.85)
-            ])
+            nameField.topAnchor.constraint(equalTo: fieldsContainer.topAnchor),
+            nameField.leftAnchor.constraint(equalTo: fieldsContainer.leftAnchor),
+            nameField.rightAnchor.constraint(equalTo: fieldsContainer.rightAnchor),
+            nameField.heightAnchor.constraint(equalToConstant: 40.0)
+        ])
         
         passwordField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            passwordField.topAnchor.constraint(equalTo: self.topAnchor, constant: 150),
-            passwordField.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            passwordField.heightAnchor.constraint(equalToConstant: 35),
-            passwordField.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.85)
-            ])
+            passwordField.topAnchor.constraint(equalTo: nameField.bottomAnchor, constant: 30.0),
+            passwordField.leftAnchor.constraint(equalTo: fieldsContainer.leftAnchor),
+            passwordField.rightAnchor.constraint(equalTo: fieldsContainer.rightAnchor),
+            passwordField.heightAnchor.constraint(equalToConstant: 40.0),
+        ])
         
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            loginButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 200),
-            loginButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            loginButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 60.0),
+            loginButton.leftAnchor.constraint(equalTo: fieldsContainer.leftAnchor),
+            loginButton.rightAnchor.constraint(equalTo: fieldsContainer.rightAnchor),
             loginButton.heightAnchor.constraint(equalToConstant: 45),
-            loginButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.85)
-            ])
+            loginButton.bottomAnchor.constraint(equalTo: fieldsContainer.bottomAnchor)
+        ])
         
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             closeButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            closeButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 50)])
+            closeButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 50)
+        ])
     }
 }
 

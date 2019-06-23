@@ -50,6 +50,39 @@
 		77CBC29D229724ED00B8487B /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBC29C229724ED00B8487B /* ImageService.swift */; };
 		77F5460F22AC546000906BBA /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F5460E22AC546000906BBA /* UIViewExtension.swift */; };
 		AF9E32BC6DEF1EFDEA47D560 /* Pods_iosProjektUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4393A5ADC78C9E776445D78 /* Pods_iosProjektUITests.framework */; };
+		EB06D01822BFA37300676ACA /* MyToDosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB06D01722BFA37300676ACA /* MyToDosViewController.swift */; };
+		EB06D01A22BFC6D400676ACA /* ToDosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB06D01922BFC6D400676ACA /* ToDosTableViewCell.swift */; };
+		EB566FD322BEB856002FB491 /* ViewModelTripsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB566FD222BEB856002FB491 /* ViewModelTripsItem.swift */; };
+		EB566FD522BEBDA6002FB491 /* MyTripsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB566FD422BEBDA6002FB491 /* MyTripsTableViewCell.swift */; };
+		EB566FD722BECD5C002FB491 /* CityTripsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB566FD622BECD5C002FB491 /* CityTripsViewModel.swift */; };
+		EB566FD922BECDF5002FB491 /* AddToDoToTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB566FD822BECDF5002FB491 /* AddToDoToTripViewController.swift */; };
+		EB566FDB22BEDADB002FB491 /* CityTripsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB566FDA22BEDADB002FB491 /* CityTripsTableViewCell.swift */; };
+		EB566FDD22BEF85F002FB491 /* ToDosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB566FDC22BEF85F002FB491 /* ToDosViewModel.swift */; };
+		EBA30DD222B8F80400DE89A5 /* UserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA30DD122B8F80400DE89A5 /* UserInfoTableViewCell.swift */; };
+		EBA30DD522B9003900DE89A5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA30DD422B9003900DE89A5 /* User.swift */; };
+		EBA30DD722B904E700DE89A5 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA30DD622B904E700DE89A5 /* ProfileViewModel.swift */; };
+		EBA30DD922B916B400DE89A5 /* ProfileTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA30DD822B916B400DE89A5 /* ProfileTableViewHeader.swift */; };
+		EBA30DDB22B9574500DE89A5 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA30DDA22B9574500DE89A5 /* DataController.swift */; };
+		EBBA16C422B983BD00DFBE93 /* SetUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA16C322B983BD00DFBE93 /* SetUpController.swift */; };
+		EBBA16C622B995D600DFBE93 /* FieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA16C522B995D600DFBE93 /* FieldViewModel.swift */; };
+		EBBA16C822BA548C00DFBE93 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA16C722BA548C00DFBE93 /* BackButton.swift */; };
+		EBBA16CD22BA6E8E00DFBE93 /* ProfileViewModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA16CC22BA6E8E00DFBE93 /* ProfileViewModelItem.swift */; };
+		EBBA16CF22BA6FB600DFBE93 /* ViewModelUsernameAndEmailItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA16CE22BA6FB600DFBE93 /* ViewModelUsernameAndEmailItem.swift */; };
+		EBBA16D122BA702C00DFBE93 /* ViewModelPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA16D022BA702C00DFBE93 /* ViewModelPasswordItem.swift */; };
+		EBBA16D322BA705200DFBE93 /* ViewModelLikesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA16D222BA705200DFBE93 /* ViewModelLikesItem.swift */; };
+		EBBA16D722BA7F5100DFBE93 /* MyLikesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA16D622BA7F5100DFBE93 /* MyLikesTableViewCell.swift */; };
+		EBBA16D922BBBF9100DFBE93 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA16D822BBBF9100DFBE93 /* ProfileTableViewCell.swift */; };
+		EBBA16DB22BBCFE700DFBE93 /* AddTripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA16DA22BBCFE700DFBE93 /* AddTripsViewController.swift */; };
+		EBBA16DE22BBDCF700DFBE93 /* ImageWithInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA16DD22BBDCF700DFBE93 /* ImageWithInfoView.swift */; };
+		EBBA16E222BBF86F00DFBE93 /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA16E122BBF86F00DFBE93 /* AddTripViewController.swift */; };
+		EBBA16E422BC0A9800DFBE93 /* TripCreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA16E322BC0A9800DFBE93 /* TripCreatorView.swift */; };
+		EBBA16E622BC130800DFBE93 /* DestinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA16E522BC130800DFBE93 /* DestinationViewModel.swift */; };
+		EBBA16EA22BC521D00DFBE93 /* BarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA16E922BC521D00DFBE93 /* BarItem.swift */; };
+		EBBA16EC22BC6AFC00DFBE93 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA16EB22BC6AFC00DFBE93 /* Trip.swift */; };
+		EBBA16EE22BCEEDF00DFBE93 /* MyTripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA16ED22BCEEDF00DFBE93 /* MyTripsViewController.swift */; };
+		EBBA16F022BCF23700DFBE93 /* TripsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA16EF22BCF23700DFBE93 /* TripsTableViewCell.swift */; };
+		EBBA16F222BCF47700DFBE93 /* TripPropertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA16F122BCF47700DFBE93 /* TripPropertyView.swift */; };
+		EBBA16F422BCFC6A00DFBE93 /* TripsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA16F322BCFC6A00DFBE93 /* TripsViewModel.swift */; };
 		EBC0D6F1229C904D00514696 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC0D6F0229C904D00514696 /* ProfileViewController.swift */; };
 		F22E8FDC75F1B517BA81CEF7 /* Pods_iosProjekt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4A9FEB4CF6444464C6CF3B /* Pods_iosProjekt.framework */; };
 		F38CD656B07D18F45EBFACE0 /* Pods_iosProjektTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE663D558D934EC26D229E66 /* Pods_iosProjektTests.framework */; };
@@ -130,6 +163,39 @@
 		C84203F7CB24D48B332E46F3 /* Pods-iosProjektUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosProjektUITests.release.xcconfig"; path = "Target Support Files/Pods-iosProjektUITests/Pods-iosProjektUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DE663D558D934EC26D229E66 /* Pods_iosProjektTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosProjektTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4393A5ADC78C9E776445D78 /* Pods_iosProjektUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosProjektUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB06D01722BFA37300676ACA /* MyToDosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyToDosViewController.swift; sourceTree = "<group>"; };
+		EB06D01922BFC6D400676ACA /* ToDosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDosTableViewCell.swift; sourceTree = "<group>"; };
+		EB566FD222BEB856002FB491 /* ViewModelTripsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTripsItem.swift; sourceTree = "<group>"; };
+		EB566FD422BEBDA6002FB491 /* MyTripsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTripsTableViewCell.swift; sourceTree = "<group>"; };
+		EB566FD622BECD5C002FB491 /* CityTripsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTripsViewModel.swift; sourceTree = "<group>"; };
+		EB566FD822BECDF5002FB491 /* AddToDoToTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoToTripViewController.swift; sourceTree = "<group>"; };
+		EB566FDA22BEDADB002FB491 /* CityTripsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTripsTableViewCell.swift; sourceTree = "<group>"; };
+		EB566FDC22BEF85F002FB491 /* ToDosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDosViewModel.swift; sourceTree = "<group>"; };
+		EBA30DD122B8F80400DE89A5 /* UserInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTableViewCell.swift; sourceTree = "<group>"; };
+		EBA30DD422B9003900DE89A5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EBA30DD622B904E700DE89A5 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		EBA30DD822B916B400DE89A5 /* ProfileTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewHeader.swift; sourceTree = "<group>"; };
+		EBA30DDA22B9574500DE89A5 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		EBBA16C322B983BD00DFBE93 /* SetUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpController.swift; sourceTree = "<group>"; };
+		EBBA16C522B995D600DFBE93 /* FieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldViewModel.swift; sourceTree = "<group>"; };
+		EBBA16C722BA548C00DFBE93 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		EBBA16CC22BA6E8E00DFBE93 /* ProfileViewModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelItem.swift; sourceTree = "<group>"; };
+		EBBA16CE22BA6FB600DFBE93 /* ViewModelUsernameAndEmailItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelUsernameAndEmailItem.swift; sourceTree = "<group>"; };
+		EBBA16D022BA702C00DFBE93 /* ViewModelPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelPasswordItem.swift; sourceTree = "<group>"; };
+		EBBA16D222BA705200DFBE93 /* ViewModelLikesItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelLikesItem.swift; sourceTree = "<group>"; };
+		EBBA16D622BA7F5100DFBE93 /* MyLikesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLikesTableViewCell.swift; sourceTree = "<group>"; };
+		EBBA16D822BBBF9100DFBE93 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		EBBA16DA22BBCFE700DFBE93 /* AddTripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripsViewController.swift; sourceTree = "<group>"; };
+		EBBA16DD22BBDCF700DFBE93 /* ImageWithInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWithInfoView.swift; sourceTree = "<group>"; };
+		EBBA16E122BBF86F00DFBE93 /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
+		EBBA16E322BC0A9800DFBE93 /* TripCreatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCreatorView.swift; sourceTree = "<group>"; };
+		EBBA16E522BC130800DFBE93 /* DestinationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewModel.swift; sourceTree = "<group>"; };
+		EBBA16E922BC521D00DFBE93 /* BarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarItem.swift; sourceTree = "<group>"; };
+		EBBA16EB22BC6AFC00DFBE93 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		EBBA16ED22BCEEDF00DFBE93 /* MyTripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTripsViewController.swift; sourceTree = "<group>"; };
+		EBBA16EF22BCF23700DFBE93 /* TripsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewCell.swift; sourceTree = "<group>"; };
+		EBBA16F122BCF47700DFBE93 /* TripPropertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPropertyView.swift; sourceTree = "<group>"; };
+		EBBA16F322BCFC6A00DFBE93 /* TripsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsViewModel.swift; sourceTree = "<group>"; };
 		EBC0D6F0229C904D00514696 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +257,7 @@
 				77B18ED02295F3E700AE22C2 /* CityCategoriesViewController.swift */,
 				7702BEF322989E5B00E43FEC /* ToDoTableViewController.swift */,
 				77620C2722A7D29A0022B3C0 /* AddToDoViewController.swift */,
+				EB566FD822BECDF5002FB491 /* AddToDoToTripViewController.swift */,
 			);
 			path = SearchNavigationController;
 			sourceTree = "<group>";
@@ -204,6 +271,7 @@
 				776255812297556000D146A5 /* CityCategoriesView.swift */,
 				779E3DDC229716F200F37B2C /* CityCollectionViewCell.swift */,
 				77625585229767A700D146A5 /* CategoryMenuCell.swift */,
+				EB566FDA22BEDADB002FB491 /* CityTripsTableViewCell.swift */,
 			);
 			path = MainTabBarViews;
 			sourceTree = "<group>";
@@ -233,6 +301,7 @@
 		775930D322942E8F00E09140 /* iosProjekt */ = {
 			isa = PBXGroup;
 			children = (
+				EBA30DD322B8FDB900DE89A5 /* ViewModels */,
 				77CBC29B229724DA00B8487B /* Services */,
 				77A942B82294872A0080458F /* Common */,
 				77A73CD6229479B100353CA7 /* Models */,
@@ -269,6 +338,8 @@
 		77A73CD42294797900353CA7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EBBA16DC22BBDA8B00DFBE93 /* TripsTabBarViews */,
+				EBA30DD022B8F7C700DE89A5 /* ProfileTabBarViews */,
 				771BCEAA2296D68C00B772AD /* MainTabBarViews */,
 				77A73CD7229479DE00353CA7 /* LoginView.swift */,
 				77A942BD2295D65F0080458F /* InitialView.swift */,
@@ -293,6 +364,9 @@
 			children = (
 				779E3DDA22970C6B00F37B2C /* City.swift */,
 				7702BEEE22989BC400E43FEC /* ToDo.swift */,
+				EBA30DD422B9003900DE89A5 /* User.swift */,
+				EBA30DDA22B9574500DE89A5 /* DataController.swift */,
+				EBBA16EB22BC6AFC00DFBE93 /* Trip.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -329,6 +403,7 @@
 		77B18ED42295F7B600AE22C2 /* MainTabBarControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EBBA16CB22BA63BA00DFBE93 /* TripsPageViewController */,
 				EBC0D6F2229D305300514696 /* ProfileNavigationController */,
 				7702BEF222989E1A00E43FEC /* SearchNavigationController */,
 				77B18ECC2295EEF700AE22C2 /* MainTabBarViewController.swift */,
@@ -345,10 +420,66 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		EBA30DD022B8F7C700DE89A5 /* ProfileTabBarViews */ = {
+			isa = PBXGroup;
+			children = (
+				EBBA16C722BA548C00DFBE93 /* BackButton.swift */,
+				EBA30DD122B8F80400DE89A5 /* UserInfoTableViewCell.swift */,
+				EBA30DD822B916B400DE89A5 /* ProfileTableViewHeader.swift */,
+				EBBA16D622BA7F5100DFBE93 /* MyLikesTableViewCell.swift */,
+				EB566FD422BEBDA6002FB491 /* MyTripsTableViewCell.swift */,
+				EBBA16D822BBBF9100DFBE93 /* ProfileTableViewCell.swift */,
+			);
+			path = ProfileTabBarViews;
+			sourceTree = "<group>";
+		};
+		EBA30DD322B8FDB900DE89A5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				EBA30DD622B904E700DE89A5 /* ProfileViewModel.swift */,
+				EBBA16C522B995D600DFBE93 /* FieldViewModel.swift */,
+				EBBA16CC22BA6E8E00DFBE93 /* ProfileViewModelItem.swift */,
+				EBBA16CE22BA6FB600DFBE93 /* ViewModelUsernameAndEmailItem.swift */,
+				EBBA16D022BA702C00DFBE93 /* ViewModelPasswordItem.swift */,
+				EBBA16D222BA705200DFBE93 /* ViewModelLikesItem.swift */,
+				EB566FD222BEB856002FB491 /* ViewModelTripsItem.swift */,
+				EBBA16E522BC130800DFBE93 /* DestinationViewModel.swift */,
+				EBBA16F322BCFC6A00DFBE93 /* TripsViewModel.swift */,
+				EB566FD622BECD5C002FB491 /* CityTripsViewModel.swift */,
+				EB566FDC22BEF85F002FB491 /* ToDosViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		EBBA16CB22BA63BA00DFBE93 /* TripsPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EBBA16DA22BBCFE700DFBE93 /* AddTripsViewController.swift */,
+				EBBA16E122BBF86F00DFBE93 /* AddTripViewController.swift */,
+				EBBA16ED22BCEEDF00DFBE93 /* MyTripsViewController.swift */,
+				EB06D01722BFA37300676ACA /* MyToDosViewController.swift */,
+			);
+			path = TripsPageViewController;
+			sourceTree = "<group>";
+		};
+		EBBA16DC22BBDA8B00DFBE93 /* TripsTabBarViews */ = {
+			isa = PBXGroup;
+			children = (
+				EBBA16DD22BBDCF700DFBE93 /* ImageWithInfoView.swift */,
+				EBBA16E322BC0A9800DFBE93 /* TripCreatorView.swift */,
+				EBBA16E922BC521D00DFBE93 /* BarItem.swift */,
+				EBBA16EF22BCF23700DFBE93 /* TripsTableViewCell.swift */,
+				EBBA16F122BCF47700DFBE93 /* TripPropertyView.swift */,
+				EB06D01922BFC6D400676ACA /* ToDosTableViewCell.swift */,
+			);
+			path = TripsTabBarViews;
+			sourceTree = "<group>";
+		};
 		EBC0D6F2229D305300514696 /* ProfileNavigationController */ = {
 			isa = PBXGroup;
 			children = (
 				EBC0D6F0229C904D00514696 /* ProfileViewController.swift */,
+				EBBA16C322B983BD00DFBE93 /* SetUpController.swift */,
 			);
 			path = ProfileNavigationController;
 			sourceTree = "<group>";
@@ -594,34 +725,67 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB566FDD22BEF85F002FB491 /* ToDosViewModel.swift in Sources */,
 				77625586229767A700D146A5 /* CategoryMenuCell.swift in Sources */,
 				77A942BC229488510080458F /* SignUpViewController.swift in Sources */,
 				77620C2622A743140022B3C0 /* AddToDoView.swift in Sources */,
+				EBA30DD222B8F80400DE89A5 /* UserInfoTableViewCell.swift in Sources */,
+				EBA30DD522B9003900DE89A5 /* User.swift in Sources */,
 				77B18ECF2295F29C00AE22C2 /* SearchViewController.swift in Sources */,
+				EB566FD722BECD5C002FB491 /* CityTripsViewModel.swift in Sources */,
 				7702BEEF22989BC400E43FEC /* ToDo.swift in Sources */,
+				EBBA16F422BCFC6A00DFBE93 /* TripsViewModel.swift in Sources */,
+				EBBA16EE22BCEEDF00DFBE93 /* MyTripsViewController.swift in Sources */,
+				EBBA16E422BC0A9800DFBE93 /* TripCreatorView.swift in Sources */,
+				EBA30DDB22B9574500DE89A5 /* DataController.swift in Sources */,
+				EB566FD322BEB856002FB491 /* ViewModelTripsItem.swift in Sources */,
 				77A942BA2294875A0080458F /* UITextFieldExtension.swift in Sources */,
+				EBBA16D322BA705200DFBE93 /* ViewModelLikesItem.swift in Sources */,
+				EBBA16EA22BC521D00DFBE93 /* BarItem.swift in Sources */,
+				EBBA16D922BBBF9100DFBE93 /* ProfileTableViewCell.swift in Sources */,
+				EB566FD522BEBDA6002FB491 /* MyTripsTableViewCell.swift in Sources */,
+				EB566FD922BECDF5002FB491 /* AddToDoToTripViewController.swift in Sources */,
+				EBBA16D722BA7F5100DFBE93 /* MyLikesTableViewCell.swift in Sources */,
 				7702BEEB2298827A00E43FEC /* CustomImageButton.swift in Sources */,
 				779E3DDD229716F200F37B2C /* CityCollectionViewCell.swift in Sources */,
+				EBBA16C622B995D600DFBE93 /* FieldViewModel.swift in Sources */,
 				77A942B72294864A0080458F /* SignUpView.swift in Sources */,
 				77A73CDA22947A7C00353CA7 /* LoginViewController.swift in Sources */,
+				EBBA16F022BCF23700DFBE93 /* TripsTableViewCell.swift in Sources */,
 				77A73CD8229479DE00353CA7 /* LoginView.swift in Sources */,
+				EBBA16E622BC130800DFBE93 /* DestinationViewModel.swift in Sources */,
 				EBC0D6F1229C904D00514696 /* ProfileViewController.swift in Sources */,
+				EB06D01822BFA37300676ACA /* MyToDosViewController.swift in Sources */,
+				EB566FDB22BEDADB002FB491 /* CityTripsTableViewCell.swift in Sources */,
+				EBBA16CF22BA6FB600DFBE93 /* ViewModelUsernameAndEmailItem.swift in Sources */,
 				77B18ECD2295EEF700AE22C2 /* MainTabBarViewController.swift in Sources */,
+				EBBA16CD22BA6E8E00DFBE93 /* ProfileViewModelItem.swift in Sources */,
 				77A942E92295E4430080458F /* UIColorExtension.swift in Sources */,
 				7702BEED22989AFE00E43FEC /* ToDoTableViewCell.swift in Sources */,
 				77A942BE2295D65F0080458F /* InitialView.swift in Sources */,
 				7702BEF422989E5B00E43FEC /* ToDoTableViewController.swift in Sources */,
 				775930D522942E8F00E09140 /* AppDelegate.swift in Sources */,
+				EBBA16EC22BC6AFC00DFBE93 /* Trip.swift in Sources */,
+				EB06D01A22BFC6D400676ACA /* ToDosTableViewCell.swift in Sources */,
+				EBBA16C422B983BD00DFBE93 /* SetUpController.swift in Sources */,
+				EBBA16F222BCF47700DFBE93 /* TripPropertyView.swift in Sources */,
 				77620C2A22A83B140022B3C0 /* FirebaseService.swift in Sources */,
 				7702BEF122989DD000E43FEC /* DynamicViewType.swift in Sources */,
 				77CBC29D229724ED00B8487B /* ImageService.swift in Sources */,
+				EBBA16D122BA702C00DFBE93 /* ViewModelPasswordItem.swift in Sources */,
 				771BCEAC2296D6B400B772AD /* SearchView.swift in Sources */,
 				77A942C02295DB690080458F /* InitialViewController.swift in Sources */,
+				EBA30DD722B904E700DE89A5 /* ProfileViewModel.swift in Sources */,
+				EBBA16C822BA548C00DFBE93 /* BackButton.swift in Sources */,
 				77620C2822A7D29A0022B3C0 /* AddToDoViewController.swift in Sources */,
+				EBBA16DB22BBCFE700DFBE93 /* AddTripsViewController.swift in Sources */,
+				EBBA16DE22BBDCF700DFBE93 /* ImageWithInfoView.swift in Sources */,
+				EBBA16E222BBF86F00DFBE93 /* AddTripViewController.swift in Sources */,
 				77F5460F22AC546000906BBA /* UIViewExtension.swift in Sources */,
 				771BCEAE2296E5E600B772AD /* CustomSearchTextField.swift in Sources */,
 				776255822297556000D146A5 /* CityCategoriesView.swift in Sources */,
 				779E3DDB22970C6B00F37B2C /* City.swift in Sources */,
+				EBA30DD922B916B400DE89A5 /* ProfileTableViewHeader.swift in Sources */,
 				77B18ED12295F3E700AE22C2 /* CityCategoriesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -26,20 +26,42 @@ class MainTabBarViewController: UITabBarController {
         UITabBar.appearance().shadowImage = UIImage()
         UITabBar.appearance().backgroundImage = UIImage()
 
-        //TODO: find appropriate icons
         let searchViewController = SearchViewController()
-        let searchNavigationController = UINavigationController(rootViewController: searchViewController)
-        searchViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+        let searchNavigationController = UINavigationController(
+            rootViewController: searchViewController
+        )
+        searchViewController.tabBarItem = UITabBarItem(
+            title: "Search",
+            image: UIImage(named: "searchIcon.png"),
+            tag: 0
+        )
         
-        let profileViewController = ProfileViewController()
-        let profileNavigationController = UINavigationController(rootViewController: profileViewController)
-        profileViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 1)
+        let profileViewController = ProfileViewController(
+            profileViewModel: ProfileViewModel()
+        )
+        let profileNavigationController = UINavigationController(
+            rootViewController: profileViewController
+        )
+        profileViewController.tabBarItem = UITabBarItem(
+            title: "Profile",
+            image: UIImage(named: "profileIcon.png"),
+            tag: 1
+        )
         
-        let plansViewController = UIViewController()
-        plansViewController.view.backgroundColor = .red
-        plansViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 2)
+        let tripsViewController = UINavigationController(
+            rootViewController: AddTripsViewController()
+        )
+        tripsViewController.tabBarItem = UITabBarItem(
+            title: "Trips",
+            image: UIImage(named: "tripsIcon.png"),
+            tag: 2
+        )
         
-        let tabBarList = [searchNavigationController, profileNavigationController, plansViewController]
+        let tabBarList = [
+            searchNavigationController,
+            profileNavigationController,
+            tripsViewController
+        ]
         viewControllers = tabBarList
     }
 }

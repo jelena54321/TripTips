@@ -41,6 +41,44 @@ class SignUpViewController : UIViewController {
         signUpView.signUpButton.addTarget(self, action: #selector(signUpButtonTap), for: .touchUpInside)
     }
     
+    override func viewDidLayoutSubviews() {
+        signUpView.emailField.layer.addSublayer({
+            let border = CALayer()
+            border.frame = CGRect(
+                x: 0,
+                y: signUpView.emailField.bounds.height - 1,
+                width: signUpView.emailField.bounds.width,
+                height: 1
+            )
+            border.backgroundColor = UIColor.lightGray.cgColor
+            return border
+        }())
+        
+        signUpView.passwordField.layer.addSublayer({
+            let border = CALayer()
+            border.frame = CGRect(
+                x: 0,
+                y: signUpView.passwordField.bounds.height - 1,
+                width: signUpView.passwordField.bounds.width,
+                height: 1
+            )
+            border.backgroundColor = UIColor.lightGray.cgColor
+            return border
+        }())
+        
+        signUpView.usernameField.layer.addSublayer({
+            let border = CALayer()
+            border.frame = CGRect(
+                x: 0,
+                y: signUpView.usernameField.bounds.height - 1,
+                width: signUpView.usernameField.bounds.width,
+                height: 1
+            )
+            border.backgroundColor = UIColor.lightGray.cgColor
+            return border
+        }())
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
@@ -86,7 +124,12 @@ class SignUpViewController : UIViewController {
                 guard let uid = user?.user.uid else {
                     return
                 }
-                Database.database().reference().child("users").child(uid).setValue(["username": username])
+                Database.database().reference().child("users").child(uid).setValue(
+                    [
+                        "username": username,
+                        "email": email
+                    ]
+                )
             }
         }
     }

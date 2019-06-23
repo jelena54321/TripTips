@@ -14,6 +14,7 @@ class ToDoTableViewController : UIViewController {
     
     var toDos = [ToDo]()
     let tableView = UITableView()
+    var city : String?
     var cityName : String? = nil
     var category : String? = nil
     var ref : DatabaseReference? = nil
@@ -195,6 +196,25 @@ class ToDoTableViewController : UIViewController {
             }
         }
     }
+    
+    @objc
+    func addToTrip(_ sender : UIButton) {
+        guard let city = city,
+              let category = category else {
+            return
+        }
+    
+        self.present(
+            AddToDoToTripViewController(
+                cityTripsViewModel: CityTripsViewModel(
+                    city: city,
+                    category: category,
+                    toDo: (sender.superview as! ToDoTableViewCell).toDo
+                )
+            ),
+            animated: true
+        )
+    }
 }
 
 extension ToDoTableViewController: UITableViewDataSource {
@@ -211,6 +231,7 @@ extension ToDoTableViewController: UITableViewDataSource {
             
             cell.setup(with: toDos[indexPath.row], liked: liked)
             cell.likeButton.addTarget(self, action: #selector(like), for: .touchUpInside)
+            cell.tripButton.addTarget(self, action: #selector(addToTrip), for: .touchUpInside)
         } else {
             let liked = isLiked(todo: toDos[indexPath.row])
             
@@ -218,6 +239,7 @@ extension ToDoTableViewController: UITableViewDataSource {
 
             if let cell = cell as? ToDoTableViewCell {
                 cell.likeButton.addTarget(self, action: #selector(like), for: .touchUpInside)
+                cell.tripButton.addTarget(self, action: #selector(addToTrip), for: .touchUpInside)
                 if liked {
                     cell.likeButton.setImage(UIImage(named: "heartRed"), for: .normal)
                     cell.likeButton.tag = 1
@@ -227,6 +249,7 @@ extension ToDoTableViewController: UITableViewDataSource {
                 }
             }
         }
+        
         cell.selectionStyle = .none
         return cell
     }

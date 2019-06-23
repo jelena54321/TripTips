@@ -17,6 +17,7 @@ class ToDoTableViewCell : UITableViewCell {
     let separator = UIView()
     let likeButton = UIButton()
     let likeNumberLabel = UILabel()
+    let tripButton = UIButton()
     
     let detailsBackground = UIView()
     let detailsLabel = UILabel()
@@ -84,6 +85,7 @@ extension ToDoTableViewCell: DynamicViewType {
             self.likeButton.setImage(UIImage(named: "heartEmpty"), for: .normal)
             self.likeButton.tag = 0
         }
+        self.tripButton.setImage(UIImage(named: "trip.png"), for: .normal)
         
         ImageService.shared.fetchImage(imageUrl: toDo.image){ (image) in
             if image != nil {
@@ -105,6 +107,7 @@ extension ToDoTableViewCell: DynamicViewType {
         self.addSubview(separator)
         self.addSubview(likeButton)
         self.addSubview(likeNumberLabel)
+        self.addSubview(tripButton)
         
         self.addSubview(detailsBackground)
         self.addSubview(detailsLabel)
@@ -139,6 +142,8 @@ extension ToDoTableViewCell: DynamicViewType {
         likeNumberLabel.font = UIFont(name: "Montserrat-Regular", size: 15)
         likeNumberLabel.textColor = .gray
         likeNumberLabel.text = "NaN"
+        
+        tripButton.setImage(UIImage(named: "trip.png"), for: .normal)
         
         detailsBackground.layer.cornerRadius = 15
         detailsBackground.backgroundColor = UIColor.triptipsYellow
@@ -192,6 +197,14 @@ extension ToDoTableViewCell: DynamicViewType {
             likeNumberLabel.centerYAnchor.constraint(equalTo: likeButton.centerYAnchor),
             likeNumberLabel.leadingAnchor.constraint(equalTo: likeButton.trailingAnchor, constant: 5)
             ])
+        
+        tripButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tripButton.leadingAnchor.constraint(equalTo: likeNumberLabel.trailingAnchor, constant: 20.0),
+            tripButton.heightAnchor.constraint(equalToConstant: 20),
+            tripButton.widthAnchor.constraint(equalToConstant: 20),
+            tripButton.centerYAnchor.constraint(equalTo: likeButton.centerYAnchor)
+        ])
         
         detailsBackground.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
